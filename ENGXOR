@@ -1,0 +1,99 @@
+#include <bits/stdc++.h>
+#define gc getchar_unlocked
+#define pc putchar_unlocked
+using namespace std;
+typedef long ll;
+inline long sscan()
+{
+   long n=0;
+   long ch=gc();
+   while( ch < '0' || ch > '9' )
+        ch=gc();
+   while(  ch >= '0' && ch <= '9' )
+    {
+        n = (n<<3)+(n<<1) + ch-'0';
+        ch=gc();
+    }
+
+   return n;
+}
+inline void lprint(long a)
+{                                       
+ long i=0;
+char S[20];
+while(a>0)
+{
+    S[i++]=a%10+'0';
+a=a/10;
+}
+--i;
+while(i>=0)
+pc(S[i--]);
+//pc('\n');
+}
+/*ll countOnes (ll n) 
+{
+    ll count=0;
+    while (n!=0)
+    {
+        n = n & (n-1);
+        count++;
+    }
+    return count;
+}*/
+inline ll countOnes(ll i) {
+    i = i - ((i >> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >> 2) & 0x33333333);
+    i = (i + (i >> 4)) & 0x0f0f0f0f;
+    i = i + (i >> 8);
+    i = i + (i >> 16);
+    return i & 0x3f;
+}
+int main() {
+	// your code goes here
+	ll t;
+	t=sscan();
+	while(t--)
+	{
+	    ll n,k;n=sscan();k=sscan();ll a[n],b[k];
+	    for(ll i=0;i<n;i++)
+	        a[i]=sscan();
+	    for(ll i=0;i<k;i++)
+	        b[i]=sscan();
+	    ll ans,res,even=0,odd=0;
+	    for(ll i=0;i<n;i++)
+        {
+	        ans=b[0]^a[i];
+	        res=countOnes(ans);
+	        if(res%2==0)
+	            even++;
+            else
+	            odd++;
+        }
+	    lprint(even);
+	    printf(" ");
+	    lprint(odd);
+	    printf("\n");
+	    for(ll i=1;i<k;i++)
+	    {
+	        ans=b[0]^b[i];
+	        res=countOnes(ans);
+	        if(res%2==0)
+	        {
+	            lprint(even);
+	            printf(" ");
+	            lprint(odd);
+	            printf("\n");
+	        }
+	        else
+	        {
+	            lprint(odd);
+	            printf(" ");
+	            lprint(even);
+	            printf("\n");
+	        }
+	    }
+	}
+	return 0;
+}
+

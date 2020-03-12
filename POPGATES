@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+void myfunction(char &i)
+{
+    if (i=='T')
+        i='H';
+    else if (i=='H')
+        i='T';
+}
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n,k;
+	    cin>>n>>k;
+	    vector<char> arr(n);
+	    vector<char> brr(n);
+	    int h=0;
+	    for(int i=0;i<n;i++)
+	    {
+	        cin>>arr[i];
+	        brr[i]=arr[i];
+	    }
+	    for(int i=n-1;i>=n-k;i--)
+	    {
+	        if(brr[i]=='T')
+	        {
+	            brr.resize(i);
+	        }
+	        else
+	        {
+	            brr.resize(i);
+	            for_each(brr.begin(),brr.end(), myfunction);
+	        }
+	    }
+	    for(int i=0;i<brr.size();i++)
+	    {
+	        //cout<<brr[i]<<"\n";
+	        if(brr[i]=='H')
+	            h++;
+	    }
+	    cout<<h<<"\n";
+	}
+	return 0;
+}
+

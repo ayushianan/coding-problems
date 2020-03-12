@@ -1,0 +1,14 @@
+t1 = int(input())
+for _ in range(t1):
+    n = int(input())
+    l = list(map(int,input().split()))
+    n1 = l.copy()
+    for _ in range(n):
+        if(len(n1)>2):
+            n1[:3] = sorted(n1[:3])
+            l.remove(n1.pop(1))
+        else:
+            break
+    print(*l)
+    l = []
+

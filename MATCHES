@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t>0)
+	{
+	    int n,k,d;
+	    cin>>n>>k;
+	    int res=0;
+	    int num=n+k;
+	    map<int,int> v;
+	    v[0]=6;
+	    v[1]=2;
+	    v[2]=5;
+	    v[3]=5;
+	    v[4]=4;
+	    v[5]=5;
+	    v[6]=6;
+	    v[7]=3;
+	    v[8]=7;
+	    v[9]=6;
+	    while(num>0)
+	    {
+	        d=num%10;
+	        res=res+v[d];
+	        num=num/10;
+	    }
+	    cout<<res<<endl;
+	    t--;
+	}
+	return 0;
+}
+

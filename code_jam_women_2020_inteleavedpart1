@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    int c=0;
+    while(t--)
+    {
+        string s;
+        cin>>s;
+        int n=s.length();
+        char str[n+1];
+        strcpy(str,s.c_str());
+        int count=0;
+        int I=0,j=0;
+        for(int i=0;i<n;i++)
+        {
+            if(str[i]=='I')
+            {
+                I++;
+            }
+            else if(str[i]=='i')
+            {       
+		j++;
+            }
+            else if(str[i]=='O')
+            {
+                if(I>0)
+                {
+                    I--;count++;
+                }
+                else
+                    j--;
+            }
+            else
+            {
+                if(j>0)
+                    j--;
+                else
+                    I--;
+            }
+        }
+        c++;
+        cout<<"Case #"<<c<<":"<<" "<<count<<"\n";
+    }
+    return 0;
+}

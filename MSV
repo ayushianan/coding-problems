@@ -1,0 +1,64 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	scanf("%d",&t);
+	while(t--)
+	{
+	    int n,j,i,count,s,ans=0;
+	    scanf("%d",&n);
+	    int arr[n];
+	    for(int f=0;f<n;f++)
+	        scanf("%ld",&arr[f]);
+	    map<int,int> m;
+	    i=0;
+	    if(arr[n-1]==1)
+	        printf("%d\n",n-1);
+	    else if(arr[n-2]==1)
+	        printf("%d\n",n-2);
+	    else{
+	    while(i<n)
+	    {
+            j=1;
+            while(j<= sqrt(arr[i]))
+            {
+                if(arr[i]%j==0)
+                {
+                    m[j]=0;
+                    s=arr[i]/j;
+                    if(j!=s)
+                        m[s]=0;
+                }
+                j++;
+            }
+            i++;
+	    }
+	    int y=0;
+	    while(y<n)
+	    {
+            count=0;
+            if(m[arr[y]]!=0)
+                count=m[arr[y]];
+            int j1=1;
+            while(j1<= sqrt(arr[y]))
+            {
+                if(arr[y]%j1==0)
+                {
+                    m[j1]+=1;
+                    s=arr[y]/j1;
+                    if(j1!=s)
+                        m[s]+=1;
+                }
+                j1++;
+            }
+            if(ans<count)
+                ans=count;
+            y++;
+	    }
+        printf("%d\n",ans);
+	    }
+	}
+	return 0;
+}
+

@@ -1,0 +1,20 @@
+# cook your dish here
+def nCr(n, r):
+    return (int(fact(n)/(fact(r)*fact(n - r))))
+def fact(n):
+    res = 1
+    for i in range(2, n+1):
+        res = res * i
+    return res
+
+t  = int(input())
+for _ in range(t):
+    n, k = map(int,input().split())
+    arr = list(map(int,input().split()))
+    arr.sort()
+    N = arr.count(arr[k-1])
+    R = 0
+    for i in range(k):
+        if(arr[i]==arr[k-1]):
+            R = R+1
+    print(nCr(N,R))

@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        int sum;
+        int arr[n];
+        int brr[n];
+        int max=-1;
+        for(int i=0;i<n;i++)
+            cin>>arr[i];
+        for(int i=0;i<n;i++)
+            cin>>brr[i];
+        for(int i=0;i<n;i++)
+        {
+            sum=0;
+            sum=sum+(arr[i]*20);
+            sum=sum-(brr[i]*10);
+            if(sum>max)
+                max=sum;
+        }
+        if(max<0)
+            cout<<"0";
+        else
+            cout<<max;
+        cout<<"\n";
+        
+    }
+	// your code goes here
+	return 0;
+}
+

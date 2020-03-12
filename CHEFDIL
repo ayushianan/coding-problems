@@ -1,0 +1,11 @@
+# cook your dish here
+for _ in range(int(input())):
+    num = input()
+    c = 0
+    for i in num:
+        if i == '1':
+            c += 1 
+    if c % 2 == 0:
+        print("LOSE")
+    else:
+        print("WIN")

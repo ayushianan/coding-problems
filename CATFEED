@@ -1,0 +1,26 @@
+# cook your dish here
+s= int(input())
+for _ in range(s):
+    n , m , q = map(int,input().split())
+    r = [0]*n
+    c = [0]*m
+    for _ in range(q):
+        x, z = map(int,input().split())
+        r[x-1] = r[x-1]+1
+        c[z-1] = c[z-1]+1
+    ep=0
+    oq=0
+    es=0
+    ot=0
+    for i in r:
+        if(i%2==0):
+            ep+=1
+        else:
+            oq+=1
+    for j in c:
+        if(j%2==0):
+            es+=1
+        else:
+            ot+=1
+    count1 = (ep*ot)+(oq*es)
+    print(count1)

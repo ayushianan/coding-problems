@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        long long a,b,c;
+        cin>>a>>b>>c;
+        long long count=0;
+        for(long long  i=2;i<=a;i++)
+        {
+            for(long long j=1;j<=b;j++)
+            {
+                for(long long k=2;k<=c;k++)
+                {
+                    if((j*j)-(i-1)*(k-1)<0)
+                        count++;
+                }
+            }
+        }
+        cout<<count%(1000000007)<<"\n";
+    }
+    return 0;
+}

@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+
+    // the last digits of the fibonnacci sequence repeat at 60.
+    // let's just get them all
+    int lastDigits[60];
+    lastDigits[0] = 0;
+    lastDigits[1] = 1;
+    for (int i=2;i<60;i++) {
+        lastDigits[i] = (lastDigits[i-2]+lastDigits[i-1]) % 10;
+    }
+
+    unsigned int t;
+    std::cin >> t; //number of test cases
+    while (t--) {
+        long long int td;
+        std::cin >> td;  //next case
+
+        // after repeatedly removing even-indexed (zero-based) items, the
+        // original index of the last remaining item will be the highest
+        // 2^n - 1 that fits.  We can calculate this directly
+        td >>= 1;
+        td |= td>>32;
+        td |= td>>16;
+        td |= td>>8;
+        td |= td>>4;
+        td |= td>>2;
+        td |= td>>1;
+
+        cout << lastDigits[(int)(td%60)] << endl;
+    }
+    return 0;
+}

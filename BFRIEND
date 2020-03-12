@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long long int t;
+	cin>>t;
+	while(t--)
+	{
+	    long long int n,a,b,c;
+	    cin>>n>>a>>b>>c;
+	    long long int f[n];
+	    for(long long int i=0;i<n;i++)
+	    {
+	        cin>>f[i];
+	    }
+	    long long int ttime;
+	    long long int min1=INT_MAX,pos;
+	    for(long long int i=0;i<n;i++)
+	    {
+            if(min1>abs(((a+b)/2)-f[i]))
+	        {
+	            min1=abs(((a+b)/2)-f[i]);
+	            pos=i;
+	        }
+	    }
+	    ttime=abs(f[pos]-b)+abs(f[pos]-a)+c;
+	    cout<<ttime<<"\n";
+	}
+	return 0;
+}
+

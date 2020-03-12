@@ -1,0 +1,18 @@
+s= int(input())
+for _ in range(s):
+    n, k = map(int,input().split())
+    arr = list(map(int,input().split()))
+    if(n%2!=0 and k>n//2):
+        arr[n//2]=0
+        
+    x = k%(3*n)
+    t1= k-x
+    
+    for i in range(t1,k):
+        a = arr[i%n]
+        b = arr[(n-1)-i%n]
+        arr[i%n] = a^b
+        
+    print(*arr)
+
+

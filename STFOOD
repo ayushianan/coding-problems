@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n;
+	    cin>>n;
+	    int s[n],v[n],p[n];
+	    for(int i=0;i<n;i++)
+	    {
+	        cin>>s[i]>>p[i]>>v[i];
+	        s[i]++;
+	    }
+	    int max=0;
+	    int pos,di,p1;
+	    for(int i=0;i<n;i++)
+	    {
+	        di=floor(p[i]/s[i]);
+	        p1=di*v[i];
+	        if(max<=p1)
+	        {
+	            max=p1;
+	        }
+	    }
+	    cout<<max<<"\n";
+	}
+	return 0;
+}
+
